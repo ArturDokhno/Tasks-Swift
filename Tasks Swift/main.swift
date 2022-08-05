@@ -45,5 +45,32 @@ func checkReversed(text: String) -> Bool {
     return String(textNoSpaceAndLowercased.reversed()) == textNoSpaceAndLowercased
 }
 
-print(checkReversed(text: "А роза упала на лапу Азора"))
+//print(checkReversed(text: "А роза упала на лапу Азора"))
 
+// MARK: Задача 3: Идентичны ли строки между собой ?
+
+// Задание: Написать функцию которая принимает две строки и возвращает true если эти строки содержат одинаковые символы в любом порядке
+
+// Решение:
+
+func checkIdentity1(text1: String, text2: String) -> Bool {
+    return text1.sorted() == text2.sorted()
+}
+
+print(checkIdentity1(text1: "art", text2: "atr"))
+
+func checkIdentity2(text1: String, text2: String) -> Bool {
+    var checkText = text2
+    
+    for letter in text1 {
+        if let index = checkText.firstIndex(of: letter) {
+            checkText.remove(at: index)
+        } else {
+            return false
+        }
+    }
+    
+    return checkText.count == 0
+}
+
+print(checkIdentity2(text1: "atr", text2: "art"))
