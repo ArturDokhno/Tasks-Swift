@@ -57,7 +57,7 @@ func checkIdentity1(text1: String, text2: String) -> Bool {
     return text1.sorted() == text2.sorted()
 }
 
-print(checkIdentity1(text1: "art", text2: "atr"))
+//print(checkIdentity1(text1: "art", text2: "atr"))
 
 func checkIdentity2(text1: String, text2: String) -> Bool {
     var checkText = text2
@@ -73,4 +73,22 @@ func checkIdentity2(text1: String, text2: String) -> Bool {
     return checkText.count == 0
 }
 
-print(checkIdentity2(text1: "atr", text2: "art"))
+//print(checkIdentity2(text1: "atr", text2: "art"))
+
+// MARK: Задача 4: Содержит ли одна строка другую?
+
+// Задание: Написать функцию которая принимает лдну строку и возвращает true если эта строка полностью содержится в другой строке игнорируя регистр
+
+// Решение:
+
+let str1 = "Hello Swift"
+
+//print(str1.lowercased().contains("swift"))
+
+extension String {
+    func customContains(_ string: String) -> Bool {
+        return self.lowercased().contains(string.lowercased())
+    }
+}
+
+print(str1.customContains("swift"))
