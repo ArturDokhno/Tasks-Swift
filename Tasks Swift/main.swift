@@ -77,7 +77,7 @@ func checkIdentity2(text1: String, text2: String) -> Bool {
 
 // MARK: Задача 4: Содержит ли одна строка другую?
 
-// Задание: Написать функцию которая принимает лдну строку и возвращает true если эта строка полностью содержится в другой строке игнорируя регистр
+// Задание: Написать функцию которая принимает одну строку и возвращает true если эта строка полностью содержится в другой строке игнорируя регистр
 
 // Решение:
 
@@ -91,4 +91,31 @@ extension String {
     }
 }
 
-print(str1.customContains("swift"))
+//print(str1.customContains("swift"))
+
+// MARK: Задача 5: Сколько раз символ встречается в строке ?
+
+// Задание: Написать функцию которая принимает строку и символ и возвращает количество раз которое данный символ встречается в строке с учетом регистра
+
+// Решение:
+
+func checkCountChar(_ str: String,_ char: Character) -> Int {
+    var letterCount = 0
+    
+    for letter in str.lowercased() {
+        if letter == char {
+            letterCount += 1
+        }
+    }
+    return letterCount
+}
+
+print(checkCountChar("aRtur", "r"))
+
+func checkCountChar2(_ str: String,_ char: Character) -> Int {
+    return str.lowercased().reduce(0) {
+        $1 == char ? $0 + 1 : $0
+    }
+}
+
+print(checkCountChar2("aRtur", "r"))
