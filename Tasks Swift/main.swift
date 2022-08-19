@@ -140,4 +140,23 @@ func solution<T>(_ array: [Any]) -> [T] {
     return result
 }
 
-print(solution(array) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+//print(solution(array) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+
+// MARK: Задача 6: Удаление повторяющихся символов из строки ?
+
+// Задание: Написать функцию которая принимает строку и возвращает строку с удаленными повторяющимся символами
+
+// Решение:
+
+func removeRepeatChar(_ str: String) -> String {
+    var result = ""
+    for letter in str {
+        if !result.contains(letter) {
+            result.append(letter)
+        }
+    }
+    return result
+}
+
+print(removeRepeatChar("Hellooo"))
+ 
