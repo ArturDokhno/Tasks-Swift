@@ -110,7 +110,7 @@ func checkCountChar(_ str: String,_ char: Character) -> Int {
     return letterCount
 }
 
-print(checkCountChar("aRtur", "r"))
+//print(checkCountChar("aRtur", "r"))
 
 func checkCountChar2(_ str: String,_ char: Character) -> Int {
     return str.lowercased().reduce(0) {
@@ -118,4 +118,26 @@ func checkCountChar2(_ str: String,_ char: Character) -> Int {
     }
 }
 
-print(checkCountChar2("aRtur", "r"))
+//print(checkCountChar2("aRtur", "r"))
+
+
+// Задача с собеседования
+
+let array: [Any] = [1, 2, 3, [4, 5], [6, 7, [8, 9, 10]], 11]
+let arrayClean: [Any] = [1, 2, 3, 4]
+let arrayComplex = [array, array, [array]]
+
+func solution<T>(_ array: [Any]) -> [T] {
+    var result = [T]()
+    
+    for element in array {
+        if let element = element as? T {
+            result.append(element)
+        } else if let element = element as? [Any] {
+            result.append(contentsOf: solution(element))
+        }
+    }
+    return result
+}
+
+print(solution(array) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
