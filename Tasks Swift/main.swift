@@ -177,7 +177,6 @@ func getmaxArea(_ height: [Int]) -> Int {
         // Пересчитать максимальную площадь
         let minHight = min(height[left], height[right])
         let currentHight = minHight * (right - left)
-        print(maxArea)
         maxArea = max(maxArea, currentHight)
         
         // Переместить указатели
@@ -193,4 +192,29 @@ func getmaxArea(_ height: [Int]) -> Int {
 
 let input = [1, 8, 6, 2, 5, 4, 8, 3, 7]
 let result = getmaxArea(input)
-print("Result: \(result)\n")
+//print("Result: \(result)\n")
+
+// MARK: Задача 7: Сокращение количества пробелов до одного
+
+// Задание: Написать функцию которая принимает строку и возвращает строку с замененным множеством пробелов на один пробел
+
+// Решение:
+
+func space(_ input: String) -> String {
+    var seenSpace = false
+    var result = ""
+    
+    for letter in input {
+        if letter == " " {
+            if seenSpace { continue }
+            seenSpace = true
+        } else {
+            seenSpace = false
+        }
+        result.append(letter)
+    }
+    
+    return result
+}
+
+print(space("a   b"))
