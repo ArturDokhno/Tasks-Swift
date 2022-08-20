@@ -158,5 +158,39 @@ func removeRepeatChar(_ str: String) -> String {
     return result
 }
 
-print(removeRepeatChar("Hellooo"))
+//print(removeRepeatChar("Hellooo"))
  
+// MARK: Задача Амазона из интервью
+
+// Задание: Написать функцию которая принимает массив чисел, нужно выбрать два максимальных числа что бы получить максимальную площадь из них для заполнения водой. Должно получится 49
+
+// Решение: O(n)
+
+func getmaxArea(_ height: [Int]) -> Int {
+    guard !height.isEmpty else { return 0 }
+    
+    var maxArea = 0
+    var left = 0
+    var right = height.count - 1
+    
+    while left < right {
+        // Пересчитать максимальную площадь
+        let minHight = min(height[left], height[right])
+        let currentHight = minHight * (right - left)
+        print(maxArea)
+        maxArea = max(maxArea, currentHight)
+        
+        // Переместить указатели
+        if height[left] < height[right] {
+            left += 1
+        } else {
+            right -= 1
+        }
+    }
+    
+    return maxArea
+}
+
+let input = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+let result = getmaxArea(input)
+print("Result: \(result)\n")
