@@ -217,4 +217,19 @@ func space(_ input: String) -> String {
     return result
 }
 
-print(space("a   b"))
+//print(space("a   b"))
+
+
+// MARK: Задача 7: Возвращение строки
+
+// Задание: Написать функцию которая принимает две строки и возвращает тру если одна строка является вращением другой, с учетом регистра
+
+// Решение:
+
+func rotate(_ input: String, _ rotated: String) -> Bool {
+    guard input.count == rotated.count else { return false }
+    let combined = input + input
+    return combined.contains(rotated)
+}
+ 
+print(rotate("abc", "cab"))
