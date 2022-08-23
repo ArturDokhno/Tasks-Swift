@@ -220,7 +220,7 @@ func space(_ input: String) -> String {
 //print(space("a   b"))
 
 
-// MARK: Задача 7: Возвращение строки
+// MARK: Задача 8: Возвращение строки
 
 // Задание: Написать функцию которая принимает две строки и возвращает тру если одна строка является вращением другой, с учетом регистра
 
@@ -232,4 +232,21 @@ func rotate(_ input: String, _ rotated: String) -> Bool {
     return combined.contains(rotated)
 }
  
-print(rotate("abc", "cab"))
+//print(rotate("abc", "cab"))
+
+// MARK: Задача 9: Является ли строка панграммой?
+
+// Задание: Написать функцию которая принимает строку и возвращает тру если строка является панграммой
+
+// Решение:
+
+func pangram(_ str: String) -> Bool {
+    let set = Set(str.lowercased())
+    let letters = set.filter {
+        $0  >= "a" && $0 <= "z"
+    }
+    return letters.count == 26
+}
+
+print(pangram("The quick brown fox jumps over the lazy dog"))
+
