@@ -248,5 +248,30 @@ func pangram(_ str: String) -> Bool {
     return letters.count == 26
 }
 
-print(pangram("The quick brown fox jumps over the lazy dog"))
+//print(pangram("The quick brown fox jumps over the lazy dog"))
 
+// MARK: Задача 9: Число гласных и согласных
+
+// Задание: Написать функцию которая принимает строку тупл содержащий число гласных и согласных
+
+// Решение:
+
+func separate(_ str: String) -> (vowels: Int, consonant: Int) {
+    let vowels = "aeiou"
+    let consonants = "bcdfghjklmnpqrstvwxyz"
+    
+    var vowelsCount = 0
+    var consonantsCount = 0
+    
+    for letter in str {
+        if vowels.contains(letter) {
+            vowelsCount += 1
+        } else if consonants.contains(letter) {
+            consonantsCount += 1
+        }
+    }
+    
+    return (vowelsCount, consonantsCount)
+}
+
+print(separate("Arthur IOS Developer"))
